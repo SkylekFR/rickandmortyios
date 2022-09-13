@@ -10,20 +10,26 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var mainViewModel = MainViewModel()
     var body: some View {
-        VStack {
-            ForEach(mainViewModel.characterList, id: \.self) { character in
-                AsyncImage(
-                    url: URL(string: character.imageUrl ?? ""))
-                    { image in
-                        image.resizable()
-                        
-                    }
-            placeholder: {
+        ScrollView {
+            VStack {
+                ForEach(mainViewModel.characterList, id: \.self) { character in
+                    HStack (){
+                        AsyncImage(
+                            url: URL(string: character.imageUrl ?? ""))
+                        { image in
+                            image
+                                .aspectRatio(contentMode: .fit)
+                        }
+                    placeholder: {
                         ProgressView()
                     }
-                Text(character.name ?? "")
+                        Text(character.name ?? "")
+                        Spacer()
+                    }
+                    
+                }
+                
             }
-            
         }
     }
 }
