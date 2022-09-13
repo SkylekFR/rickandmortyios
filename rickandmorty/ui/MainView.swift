@@ -13,23 +13,25 @@ struct MainView: View {
         ScrollView {
             VStack {
                 ForEach(mainViewModel.characterList, id: \.self) { character in
-                    HStack {
-                        AsyncImage(
-                            url: URL(string: character.imageUrl ?? ""))
-                            { image in
-                                image.resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .padding()
-                            }
-                            placeholder: {
-                                ProgressView()
-                            }
-                        Text(character.name ?? "")
-                        Spacer()
+                    NavigationLink {
+                        CharacterDetailUIView(characterId: character.id!)
+                    } label: {
+                        HStack {
+                            AsyncImage(
+                                url: URL(string: character.imageUrl ?? ""))
+                                { image in
+                                    image.resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .padding()
+                                }
+                                placeholder: {
+                                    ProgressView()
+                                }
+                            Text(character.name ?? "")
+                            Spacer()
+                        }
                     }
-                    
                 }
-                
             }
         }
     }
