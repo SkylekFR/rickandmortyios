@@ -16,6 +16,13 @@
 		EB170C462857B291007CC357 /* rickandmortyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB170C452857B291007CC357 /* rickandmortyTests.swift */; };
 		EB170C502857B291007CC357 /* rickandmortyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB170C4F2857B291007CC357 /* rickandmortyUITests.swift */; };
 		EB170C522857B291007CC357 /* rickandmortyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB170C512857B291007CC357 /* rickandmortyUITestsLaunchTests.swift */; };
+		EB170C622857B70F007CC357 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB170C612857B70F007CC357 /* MainView.swift */; };
+		EB6967B828D0ECBD004A9428 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EB6967B728D0ECBD004A9428 /* Alamofire */; };
+		EB6967BB28D0ECED004A9428 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6967BA28D0ECED004A9428 /* MainViewModel.swift */; };
+		EB6967BD28D0ED24004A9428 /* CharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6967BC28D0ED24004A9428 /* CharacterRepository.swift */; };
+		EB6967C228D0EDA8004A9428 /* RickAndMortyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6967C128D0EDA8004A9428 /* RickAndMortyResponse.swift */; };
+		EB6967C428D0EFC0004A9428 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6967C328D0EFC0004A9428 /* Character.swift */; };
+		EB6967C728D0F0BF004A9428 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = EB6967C628D0F0BF004A9428 /* Swinject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +55,11 @@
 		EB170C4B2857B291007CC357 /* rickandmortyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rickandmortyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB170C4F2857B291007CC357 /* rickandmortyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rickandmortyUITests.swift; sourceTree = "<group>"; };
 		EB170C512857B291007CC357 /* rickandmortyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rickandmortyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EB170C612857B70F007CC357 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EB6967BA28D0ECED004A9428 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		EB6967BC28D0ED24004A9428 /* CharacterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRepository.swift; sourceTree = "<group>"; };
+		EB6967C128D0EDA8004A9428 /* RickAndMortyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyResponse.swift; sourceTree = "<group>"; };
+		EB6967C328D0EFC0004A9428 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB6967B828D0ECBD004A9428 /* Alamofire in Frameworks */,
+				EB6967C728D0F0BF004A9428 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +112,9 @@
 		EB170C2E2857B28E007CC357 /* rickandmorty */ = {
 			isa = PBXGroup;
 			children = (
+				EB6967C028D0ED96004A9428 /* network */,
+				EB6967BE28D0ED7A004A9428 /* domain */,
+				EB170C5E2857B2FD007CC357 /* ui */,
 				EB170C2F2857B28E007CC357 /* rickandmortyApp.swift */,
 				EB170C312857B28E007CC357 /* ContentView.swift */,
 				EB170C332857B291007CC357 /* Assets.xcassets */,
@@ -133,6 +150,40 @@
 			path = rickandmortyUITests;
 			sourceTree = "<group>";
 		};
+		EB170C5E2857B2FD007CC357 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				EB6967B928D0ECCC004A9428 /* viewmodels */,
+				EB170C612857B70F007CC357 /* MainView.swift */,
+				EB6967BC28D0ED24004A9428 /* CharacterRepository.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		EB6967B928D0ECCC004A9428 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				EB6967BA28D0ECED004A9428 /* MainViewModel.swift */,
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
+		EB6967BE28D0ED7A004A9428 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		EB6967C028D0ED96004A9428 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				EB6967C128D0EDA8004A9428 /* RickAndMortyResponse.swift */,
+				EB6967C328D0EFC0004A9428 /* Character.swift */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +200,10 @@
 			dependencies = (
 			);
 			name = rickandmorty;
+			packageProductDependencies = (
+				EB6967B728D0ECBD004A9428 /* Alamofire */,
+				EB6967C628D0F0BF004A9428 /* Swinject */,
+			);
 			productName = rickandmorty;
 			productReference = EB170C2C2857B28E007CC357 /* rickandmorty.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +276,10 @@
 				Base,
 			);
 			mainGroup = EB170C232857B28D007CC357;
+			packageReferences = (
+				EB6967B628D0ECBD004A9428 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				EB6967C528D0F0BF004A9428 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = EB170C2D2857B28E007CC357 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -263,9 +322,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB6967BB28D0ECED004A9428 /* MainViewModel.swift in Sources */,
+				EB6967BD28D0ED24004A9428 /* CharacterRepository.swift in Sources */,
 				EB170C3C2857B291007CC357 /* rickandmorty.xcdatamodeld in Sources */,
+				EB170C622857B70F007CC357 /* MainView.swift in Sources */,
+				EB6967C228D0EDA8004A9428 /* RickAndMortyResponse.swift in Sources */,
 				EB170C392857B291007CC357 /* Persistence.swift in Sources */,
 				EB170C322857B28E007CC357 /* ContentView.swift in Sources */,
+				EB6967C428D0EFC0004A9428 /* Character.swift in Sources */,
 				EB170C302857B28E007CC357 /* rickandmortyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,6 +655,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EB6967B628D0ECBD004A9428 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+		EB6967C528D0F0BF004A9428 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EB6967B728D0ECBD004A9428 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB6967B628D0ECBD004A9428 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		EB6967C628D0F0BF004A9428 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB6967C528D0F0BF004A9428 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		EB170C3A2857B291007CC357 /* rickandmorty.xcdatamodeld */ = {
