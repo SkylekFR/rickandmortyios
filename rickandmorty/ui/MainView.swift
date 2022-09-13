@@ -13,16 +13,17 @@ struct MainView: View {
         ScrollView {
             VStack {
                 ForEach(mainViewModel.characterList, id: \.self) { character in
-                    HStack (){
+                    HStack {
                         AsyncImage(
                             url: URL(string: character.imageUrl ?? ""))
-                        { image in
-                            image
-                                .aspectRatio(contentMode: .fit)
-                        }
-                    placeholder: {
-                        ProgressView()
-                    }
+                            { image in
+                                image.resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .padding()
+                            }
+                            placeholder: {
+                                ProgressView()
+                            }
                         Text(character.name ?? "")
                         Spacer()
                     }
