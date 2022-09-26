@@ -17,21 +17,31 @@ struct MainView: View {
                         CharacterDetailUIView(characterId: character.id!)
                     } label: {
                         HStack {
-                            AsyncImage(
-                                url: URL(string: character.imageUrl ?? ""))
+                            if #available(iOS 15.0, *) {
+                                AsyncImage(
+                                    url: URL(string: character.imageUrl ?? ""))
                                 { image in
                                     image.resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .padding()
                                 }
-                                placeholder: {
-                                    ProgressView()
-                                }
+                            placeholder: {
+                                ProgressView()
+                            }
+                            } else {
+                                // Fallback on earlier versions
+                            }
                             Text(character.name ?? "")
                             Spacer()
                         }
                     }
                 }
+            }
+            .onAppear() {
+                Task {
+                    await mainViewModel.fetchCharacterList()
+                }
+                
             }
         }
     }

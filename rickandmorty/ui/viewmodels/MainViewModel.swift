@@ -17,24 +17,18 @@ class MainViewModel: ObservableObject {
     
     private var characterRepository: CharacterRepository = CharacterRepository()
     
-    init() {
-        fetchCharacterList()
-    }
-    
-    private func fetchCharacterList() {
-        Task.detached {
-            do {
-                let result = try await self.characterRepository.getCharacters()
-                self.characterList.append(contentsOf: try result.get().results)
-            }
-            catch {
-                
-            }
+    @MainActor
+    func fetchCharacterList() async {
+        do {
+          try await self.characterList = self.characterRepository.getCharacters().get().results
+        }
+        catch {
+            
         }
     }
     
-    private func fetchCharacter(id: Int) {
-        Task.detached {
+    @MainActor
+    func fetchCharacter(id: Int) async {
             do {
                 let result = try await self.characterRepository.getCharacter(id: id)
                 self.detailedCharacter = try result.get()
@@ -42,7 +36,6 @@ class MainViewModel: ObservableObject {
             catch {
                 
             }
-        }
     }
     
 }
