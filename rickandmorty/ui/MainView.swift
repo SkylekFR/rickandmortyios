@@ -41,7 +41,6 @@ struct MainView: View {
                 Task {
                     await mainViewModel.fetchCharacterList()
                 }
-                
             }
         }
     }

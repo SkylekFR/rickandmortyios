@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct rickandmortyApp: App {
     let persistenceController = PersistenceController.shared
+    
+    private var router = Router()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(router)
         }
     }
 }

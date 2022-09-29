@@ -15,27 +15,33 @@ class MainViewModel: ObservableObject {
     @Published var characterList: [Character] = []
     @Published var detailedCharacter: Character?
     
-    private var characterRepository: CharacterRepository = CharacterRepository()
+    @Published var isFetching = false
+    
+    private var characterRepository: CharacterRepository = CharacterRepositoryImpl()
     
     @MainActor
     func fetchCharacterList() async {
+        isFetching = true
         do {
-          try await self.characterList = self.characterRepository.getCharacters().get().results
+            try await self.characterList = self.characterRepository.getCharacters().get().results
+            isFetching = false
         }
         catch {
-            
+            isFetching = false
         }
     }
     
     @MainActor
     func fetchCharacter(id: Int) async {
-            do {
-                let result = try await self.characterRepository.getCharacter(id: id)
-                self.detailedCharacter = try result.get()
-            }
-            catch {
-                
-            }
+        isFetching = true
+        do {
+            let result = try await self.characterRepository.getCharacter(id: id)
+            self.detailedCharacter = try result.get()
+            isFetching = false
+        }
+        catch {
+            isFetching = false
+        }
     }
     
 }
